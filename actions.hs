@@ -23,6 +23,12 @@ runall [] = return ()
 runall (x:xs) = do x
                    runall xs
 
-main = do str2action "start of the program"
-          printitall
-          str2action "done!"
+--main = do str2action "start of the program"
+--          printitall
+--          str2action "done!"
+
+--turns an ordinary function of two arguments f into a function over multiple values (lists)
+mvLift2 :: (a -> b -> c) -> [a] -> [b] -> [c]
+mvLift2 f x y = do x' <- x
+                   y' <- y
+                   return (f x' y')
