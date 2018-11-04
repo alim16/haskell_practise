@@ -1,0 +1,7 @@
+Configuring cookie-0.4.4...
+Preprocessing library for cookie-0.4.4..
+Building library for cookie-0.4.4..
+[1 of 1] Compiling Web.Cookie       ( Web/Cookie.hs, .stack-work/dist/x86_64-osx/Cabal-2.2.0.1/build/Web/Cookie.o )
+ignoring (possibly broken) abi-depends field for packages
+Installing library in /Users/Mahamed/.stack/snapshots/x86_64-osx/lts-12.5/8.4.3/lib/x86_64-osx-ghc-8.4.3/cookie-0.4.4-J7voMT3UqhIHsi2WXOCT1n
+Registering library for cookie-0.4.4..
