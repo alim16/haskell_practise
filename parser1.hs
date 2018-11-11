@@ -17,8 +17,16 @@ item = P (\inp -> case inp of
 
 
 
-
+instance Functor Parser where
+    --fmap (a -> b) -> f a -> fb
+    fmap g p = P (\inp -> case parse p inp of
+                            [] -> []
+                            [(v,out)] -> [(g v,out)])
 
 --main = do
         --a  <- getLine
-        --return (parse item) <*> getLine >>= putStrLn . snd . head
+        --return (parse item) <*> getLine >>= putStrLn . fst . head
+
+--just for my convenience
+--charToString :: Char -> String
+--charToString c = [c]
