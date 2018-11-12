@@ -29,12 +29,29 @@ instance Applicative Parser where
 
     -- <*> :: Parser (a -> b) -> Parser a -> Parser b
     pg <*> px = P (\inp -> case parse pg inp of
-                    [] -> []
-                    [(g,out)] -> parse (fmap g px) out)
+                                [] -> []
+                                [(g,out)] -> parse (fmap g px) out)
+
+instance Monad Parser where
+    -- >>= :: Parser a -> (a -> Parser b) -> Parser b
+    p >>= f = P (\inp -> case parse p inp of
+        [] -> []
+        [(v,out)] -> parse (f v) out)
+
+threeM :: Parser (Char,Char)
+threeM = do
+        x <- item
+        item
+        z <- item
+        return (x,z)
+
 
 three:: Parser (Char,Char)
 three = pure g <*> item <*> item <*> item
         where g x y z = (x,z) 
+
+
+
 
 --main = do
         --a  <- getLine
