@@ -1,17 +1,19 @@
 module GameState where
 
 import Control.Monad.State
+import Control.Monad.Reader
 
 
 
-main = $ runState (playGame "aabcbba") initialState
+main = print $ runState (playGame "aabcbba") initialState
 
 type GameValue = Int
 type GameState = (Bool,Int)
+type T = ReaderT String (StateT GameState) GameValue
 
 initialState = (False,0)
 
-playGame :: String -> State GameState GameValue
+playGame :: String -> T
 playGame [] = do
     (_,score) <- get
     return (score)

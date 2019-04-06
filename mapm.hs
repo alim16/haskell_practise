@@ -1,8 +1,10 @@
 module Mpm where 
 
-import Control.Monad
+import Data.Char (toUpper)
+
 
 main::IO ()
 main = do
     x <- readFile "input.txt"
-    mapM_ putStrLn (lines x)
+    let x2 = map toUpper x
+    mapM_ putStrLn (lines x2)
