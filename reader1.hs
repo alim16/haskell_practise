@@ -8,7 +8,7 @@ data Conf = Conf {
 firstConf = Conf {conf1="test1"}
 
 main :: IO ()
-main = putStrLn "test"
+main = putStrLn $ runReader showConf firstConf
 
 showConf :: Reader Conf String
 showConf = do
